@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-
+//class main
 public class Main {
     public static void main(String[] args) {
         Guarderia pedro = new Guarderia();
@@ -15,7 +15,7 @@ public class Main {
                     "5. Salir";
 
             opcion = Integer.parseInt(JOptionPane.showInputDialog(menu));
-
+//swich para elegir opcion
             switch (opcion) {
                 case 1:
                     ingresarEstudiante(pedro);
@@ -38,7 +38,7 @@ public class Main {
         } while (opcion != 5);
     }
 
-
+//metodo para ingresar estudiante
     public static void ingresarEstudiante(Guarderia miGuarderia) {
         try {
             String id = JOptionPane.showInputDialog("Ingrese ID del estudiante:");
@@ -49,14 +49,14 @@ public class Main {
             String nombreAcudiente = JOptionPane.showInputDialog("Ingrese nombre del acudiente:");
             String numeroAcudiente = JOptionPane.showInputDialog("Ingrese teléfono del acudiente:");
 
-
+//metodo para agregar
             miGuarderia.agregarEstudiante(new Estudiante(nombre, "m", 18, id, alergias, nombreAcudiente, numeroAcudiente));
-            JOptionPane.showMessageDialog(null, "Estudiante registrado exitosamente.");
+            JOptionPane.showMessageDialog(null, "Estudiante ingresado.");
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Error en el ingreso de datos. Intente de nuevo.");
+            JOptionPane.showMessageDialog(null, "Error. Intente de nuevo.");
         }
     }
-
+//metodo para buscar
     public static void buscarEstudiante(Guarderia miGuarderia) {
         String id = JOptionPane.showInputDialog("Ingrese ID del estudiante a buscar:");
         Estudiante estudianteBuscdo = miGuarderia.buscarEstudiante(id);
@@ -69,7 +69,7 @@ public class Main {
             JOptionPane.showMessageDialog(null, "Estudiante no encontrado.");
         }
     }
-
+//metodo para mostrar
     public static void listarEstudiantes(Guarderia miGuarderia) {
         if (miGuarderia.verEstudiantes().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay estudiantes registrados.");
@@ -81,7 +81,7 @@ public class Main {
             JOptionPane.showMessageDialog(null, lista.toString());
         }
     }
-
+//metodo ´para actualizar
     public static void actualizarEstudiante(Guarderia miGuarderia) {
 
         String id = JOptionPane.showInputDialog("Ingrese ID del estudiante a actualizar:");
